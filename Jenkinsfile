@@ -48,7 +48,7 @@ pipeline {
   
               }
 
-               sh "docker tag mywebapp anjidockerid/myboot" f
+               sh "docker tag mywebapp anjidockerid/myboot"
                sh "docker push anjidockerid/myboot"              
  
            } 
