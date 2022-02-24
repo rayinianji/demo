@@ -21,7 +21,8 @@ pipeline {
         {
             steps{
 
-                sh "mvn clean package"
+               // sh "mvn clean install"
+               sh" mvn package -Dmaven.test.skip=true"
             }
 
         }
