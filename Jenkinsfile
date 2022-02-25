@@ -31,7 +31,7 @@ pipeline {
         {
             steps {
                 
-                sh "docker build -t myboot ."
+                sh "docker build -t hellosp ."
                 
             }
 
@@ -49,7 +49,7 @@ pipeline {
   
               }
 
-               sh "docker tag mywebapp anjidockerid/myboot"
+               sh "docker tag hellosp anjidockerid/myboot"
                sh "docker push anjidockerid/myboot"              
  
            } 
