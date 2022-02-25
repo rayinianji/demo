@@ -49,8 +49,8 @@ pipeline {
   
               }
 
-               sh "docker tag hellosp anjidockerid/myboot"
-               sh "docker push anjidockerid/myboot"              
+               sh "docker tag hellosp anjidockerid/myspboot"
+               sh "docker push anjidockerid/myspboot"              
  
            } 
 
