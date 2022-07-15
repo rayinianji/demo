@@ -22,7 +22,7 @@ pipeline {
             steps{
 
                // sh "mvn clean install"
-               sh" mvn package -Dmaven.test.skip=true"
+               sh" mvn install -Dmaven.test.skip=true "
             }
 
         }
