@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+      agent { label 'slave-1' }
 
     tools {
      
@@ -8,6 +8,7 @@ pipeline {
     }
 
     stages {
+        
         stage('SCM-Checkout') {
             steps {
                 
@@ -26,36 +27,8 @@ pipeline {
             }
 
         }
-        
-        stage('Docker Image Build....')
-        {
-            steps {
-                
-                sh "docker build -t hellosp ."
-                
-            }
 
-        }
-
-        stage ('Push image to Docker Registry')
-        {
-           steps{
-
-             withCredentials([usernamePassword(credentialsId: 'DockerId', passwordVariable: 'dockerpwd', usernameVariable: 'dockerid')])
-    
-              {
-
-               sh "docker login -u ${dockerid} -p ${dockerpwd}" 
-  
-              }
-
-               sh "docker tag hellosp anjidockerid/myspboot"
-               sh "docker push anjidockerid/myspboot"              
- 
-           } 
-
-        }
-       }
+      }
 
        post { 
         always { 
