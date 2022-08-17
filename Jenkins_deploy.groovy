@@ -26,6 +26,8 @@ pipeline {
         stage('Deplyoment preparation') {
             steps{
                   
+                  def branch_name = '${env.GIT_BRANCH}'
+                  echo " Branch Name         ${branch_name}"
                   echo "EAR file name  :     ${host_name}"
                   echo "EAR file name  :     ${maven_type}"
                   echo "Maven Repo version:  ${repo_Version}"
