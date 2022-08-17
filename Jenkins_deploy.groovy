@@ -2,8 +2,11 @@ pipeline {
     agent any
     parameters {
         
+        choice(name: 'host_name', choices: ['TVR1', 'TVR2'], description: 'choose hostname')
+        choice(name: 'maven_type', choices: ['snapshots', 'releases'], description: 'choose maven type')
         string(name: 'repo_Version', defaultValue: '', description: 'Enter maven version')
-        string(name: 'ear_filename', defaultValue: '', description: 'Enter ear file name ')
+        string(name: 'ear_filename', defaultValue: '', description: 'Enter ear file name')
+
 
     }
  stages {
@@ -23,11 +26,11 @@ pipeline {
         stage('Deplyoment preparation') {
             steps{
                   
-                  echo "EAR file name  :     ${HostName}"
+                  echo "EAR file name  :     ${host_name}"
                   echo "EAR file name  :     ${maven_type}"
-                  echo "EAR file name  :     ${Branch-tag}"
                   echo "Maven Repo version:  ${repo_Version}"
                   echo "EAR file name     :  ${ear_filename}"
+                  echo "Current GIT branhc : ${env.GIT_BRANCH}"
 
 
                   
